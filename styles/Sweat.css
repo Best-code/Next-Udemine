@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root{
+    --bg-primary: #4F5CCC;
+    --bg-secondary-700: #4f5bcc44;
+    --bg-secondary-900: #1C1D1F;
+    --bg-secondary-000: #FFF;
+
+    --btn-courseOptions: #5ABB7A;
+    --btn-courseAddCart: #1DBF73;
+
+}
+
+.wave {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    display: flex;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.wave .shape-fill {
+    fill: #4F5CCC;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-secondary-700);
+
+    overflow-x: hidden;
+}
+
+.footer{
+    padding: 1em 0em 1em 1em;
+    background-color: var(--bg-secondary-000)
+
+    
+}
+.footer-column{
+    padding: 0em 6em;
+}
+
+.courseUpdates p{
+    padding: 0em 2em 0 0;
+}
+
+*{
+    margin: 0;
+}
+
+.split{
+    display: flex;
+    flex-direction: row;
+}
+
+.split--vertical{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav li{
+    display: inline-block;
+    padding: 20px;
+}
+
+.nav{
+    margin-left: 1100px;
+}
+
+.title{
+    float: left;
+    font-size: 24px;
+    margin-left: 1em;
+}
+
+.accent{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bg-purple{
+    background-color: var(--bg-primary);
+    color: #FEFEFE;
+}
+
+.bg-gray{
+
+    background-color: var(--bg-secondary-900);
+    color: #FEFEFE;
+}
+
+.bPad4em{
+    padding-bottom: 4em;
+}
+
+.bPad2em{
+    padding-bottom: 2em;
+}
+
+.wFitContent{
+    width: fit-content;
+}
+
+.block{
+    padding: 8em 34.375em 8em 4.6875em;
+}
+
+.block h1{
+    font-size: 4em;
+    width: fit-content;
+}
+
+.block p {
+    font-size: 2em;
+}
+
+.block:not(.wFitContent) > p{
+    width: 22em;
+    font-size: 2em;
+}
+
+.block input{
+    width:18em;
+    height: 4em;
+    margin-top: 3.4em;
+    border-radius: 12px;
+    font-size: 1.25em;
+}
+
+.purplePhones{
+    flex-shrink: 0;
+}
+
+.header{
+    color: #000;
+}
+
+.product-container{
+    padding: 3em 5em;
+}
+
+.product-container h2{
+    padding-bottom: .5em;
+}
+
+.innerProductContainer{
+    padding: 1em 1.375em;
+}
+
+h2 {
+    font-size: 2em;
+    width: fit-content;
+    margin-left: 1em;
+    font-family: Poppins, sans-serif;
+}
+
+.prodCardHeading{
+    margin-left: 1em;
+    padding-bottom: 1em;
+}
+
+.product{
+    width: 18.75em;
+    height: 26.25em;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-right: 1em;
+}
+
+.gray{
+    color: grey;
+}
+
+.browse-text {
+    padding: 3.25em 3em 0em 0em;
+    height: fit-content;
+    font-family: "Poppins", sans-serif;
+}
+
+.coursePageHeadings{
+    width: 69em;
+}
+
+.courseButtonsPadding{
+    padding-top: 2em;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2em;
+}
+
+.courseButton{
+    background-color: var(--btn-courseOptions);
+    width: fit-content;
+    padding: 0em 2.5em;
+    margin-right: 5em;
+    height: 4em;
+    border-radius: .25em;
+}
+
+.courseButton p{
+    font-size: 2em;
+}
+
+@media (max-width: 1350px){
+    .nav{
+        display: none;
+    }
+}
