@@ -3,6 +3,7 @@ const sql = postgres({});
 const pool = require("../../../db/db")
 
 
+
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getCourseById = async (req: NextApiRequest, res: NextApiResponse) => {
