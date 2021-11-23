@@ -1,21 +1,52 @@
 import Image from "next/image";
 import { useRouter } from "next/Router";
+import { useState, useEffect } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import Star from "../../styles/star.png";
+import axios from "axios";
 
 const Course = () => {
 
-    const router = useRouter();
-    const { courseName } = router.query;
+    const [courseData, setCourseData] = useState(
+        {
+            id: 0,
+            title: "",
+            description: "",
+            price: 0,
+            reviews: 0,
+            students: 0,
+            rating: 0
+        }
+    );
+
+    useEffect(async () => {
+        let url = 'http://localhost:3000/api/course/titleHere'
+        await axios.get(url)
+        .then(res => {
+            let data = res.data
+                setCourseData({
+                    id: data.id,
+                    title: data.title,
+                    description: data.description,
+                    price: data.price,
+                    reviews: data.reviews,
+                    students: data.students,
+                    rating: data.rating
+                })
+                console.log(courseData)
+            }).catch(err => {
+            console.log(err)
+        })
+    }, [])
 
     return (<div>
         <Header />
         <div class="block bg-gray">
             <div class="coursePageHeadings">
                 <div class="bPad4em">
-                    <h1>{courseName}</h1>
-                    <h3>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</h3>
+                    <h1>{courseData.title}</h1>
+                    <h3>{courseData.description}</h3>
                 </div>
             </div>
             <div class="bPad2em">
@@ -25,9 +56,9 @@ const Course = () => {
                     <Image src={Star} />
                     <Image src={Star} />
                     <Image src={Star} />
-                    (322,343 ratitngs)&ensp;322,343 students</p>
+                    ({courseData.reviews} ratings)&ensp; {courseData.students} students</p>
             </div>
-            <p>Created By Zaid</p>
+            <p>Created By Colin</p>
             <br />
             <div class="split wFitContent courseUpdates">
                 <p>Last Updated 3/2021</p>
@@ -46,7 +77,7 @@ const Course = () => {
                 </a>
             </div>
         </div>
-        <Footer/>
+        <Footer />
     </div>
     )
 }
