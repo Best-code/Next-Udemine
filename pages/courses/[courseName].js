@@ -13,6 +13,10 @@ const Course = () => {
             id: 0,
             title: "",
             description: "",
+            author: " ",
+            published: null,
+            lastUpdated: null,
+            languages: " ",
             price: 0,
             reviews: 0,
             students: 0,
@@ -20,25 +24,36 @@ const Course = () => {
         }
     );
 
+    const router = useRouter()
+
     useEffect(async () => {
-        let url = 'http://localhost:3000/api/course/titleHere'
-        await axios.get(url)
-        .then(res => {
-            let data = res.data
-                setCourseData({
-                    id: data.id,
-                    title: data.title,
-                    description: data.description,
-                    price: data.price,
-                    reviews: data.reviews,
-                    students: data.students,
-                    rating: data.rating
-                })
-                console.log(courseData)
-            }).catch(err => {
-            console.log(err)
-        })
-    }, [])
+        const {courseName} = router.query
+        if(courseName) {
+            const url = `http://localhost:3000/api/course/${courseName.replace(' ', '%20')}`
+            console.log(url)
+            axios.get(url)
+            .then(res => {
+                let data = res.data
+                    setCourseData({
+                        id: data.id,
+                        title: data.title,
+                        description: data.description,
+                        author: data.author,
+                        published: data.published,
+                        lastUpdated: data.lastUpdated,
+                        languages: data.languages,
+                        price: data.price,
+                        reviews: data.reviews,
+                        students: data.students,
+                        rating: data.rating
+                    })
+                    console.log(courseData)
+                }).catch(err => {
+                console.log(err)
+            })
+
+        }
+    }, [router.query])
 
     return (<div>
         <Header />
