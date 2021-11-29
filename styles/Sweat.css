@@ -215,6 +215,17 @@ h2 {
     font-size: 2em;
 }
 
+.post-main{
+    display: flex;
+    padding: 5em 0em 5em 0em;
+    margin-left: 0;
+    border: #000;
+}
+
+.form-input {
+    width: 400px;
+}
+
 @media (max-width: 1350px){
     .nav{
         display: none;
